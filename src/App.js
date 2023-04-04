@@ -47,7 +47,7 @@ function App() {
               </span>
             </div>
 
-            <button className="px-6 py-3 font-medium bg-orange-600 rounded-lg bg-primary ">
+            <button className="px-6 py-3 font-medium rounded-lg bg-primary ">
               Watch Now
             </button>
           </div>
@@ -61,8 +61,12 @@ function App() {
 
       <section className="mb-10 movie-layout page-container">
         <h2 className="text-white capitalize mb-510text-3xl">Top trending</h2>
+        <MovieList type="top_rated"></MovieList>
+      </section>
 
-        <div className="grid grid-cols-4 gap-2 movie-list"></div>
+      <section className="mb-10 movie-layout page-container">
+        <h2 className="text-white capitalize mb-510text-3xl">Popular</h2>
+        <MovieList type="popular"></MovieList>
       </section>
     </Fragment>
   );
