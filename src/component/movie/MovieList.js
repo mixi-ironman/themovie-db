@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { SwiperSlide, Swiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/scss";
-import MovieCart from "./MovieCart";
 import useSWR from "swr";
-import { fetcher } from "../../config/config";
-import { useActionData } from "react-router-dom";
+import { apiKey, fetcher } from "../../config/config";
+import MovieCart from "./MovieCart";
 
 //https://api.themoviedb.org/3/movie/now_playing?api_key=<<api_key>>&language=en-US&page=1
 const MovieList = ({ type = "now_playing" }) => {
   const [movies, setMovies] = useState([]);
 
   const { data, error } = useSWR(
-    ` https://api.themoviedb.org/3/movie/${type}?api_key=17b91188a0eff4c90437ec7191f712fb`,
+    ` https://api.themoviedb.org/3/movie/${type}?api_key=${apiKey}`,
     fetcher
   );
 
@@ -21,7 +20,7 @@ const MovieList = ({ type = "now_playing" }) => {
     }
   }, [data]);
 
-  console.log(movies);
+  // console.log(movies);
 
   // console.log(data?.results);
 

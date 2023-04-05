@@ -1,6 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const MovieCart = ({ item }) => {
+  const navigate = useNavigate();
+
+  //handleClick
+  const handleClick = () => {
+    navigate(`/movie/${item.id}`);
+  };
   return (
     <>
       <div className="flex flex-col h-full p-5 rounded-lg select-none bg-stone-950 movie-cart">
@@ -16,7 +23,10 @@ const MovieCart = ({ item }) => {
             <span>{item.vote_average}</span>
           </div>
 
-          <button className="px-6 py-3 mt-auto capitalize rounded-lg bg-primary">
+          <button
+            onClick={handleClick}
+            className="px-6 py-3 mt-auto capitalize rounded-lg bg-primary"
+          >
             Watch now
           </button>
         </div>
