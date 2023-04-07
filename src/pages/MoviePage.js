@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
-import MovieList from "../component/movie/MovieList";
-import { fetcher, tmbAPI } from "../config/config";
+import ReactPaginate from "react-paginate";
 import useSWR from "swr";
 import MovieCart from "../component/movie/MovieCart";
+import { fetcher, tmbAPI } from "../config/config";
 import useDebounce from "../hooks/useDebounce";
-import ReactPaginate from "react-paginate";
-import Button from "../component/button/Button";
-import useSWRInfinite from "swr/infinite";
 // https://api.themoviedb.org/3/search/movie?api_key=<<api_key>>&language=en-US&page=1&include_adult=false
 
 // const pageCount = 5;

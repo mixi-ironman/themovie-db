@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import useSWR from "swr";
-import { SwiperSlide, Swiper } from "swiper/react";
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/scss";
+import useSWR from "swr";
 import { fetcher } from "../../config/config";
 import BannerItem from "./BannerItem";
 const Banner = () => {
@@ -24,7 +24,7 @@ const Banner = () => {
   return (
     <>
       <section className="banner overflow-hidden h-[400px] mb-10 page-container page-container-fluid">
-        <Swiper grapCursor={"true"} spaceBetween={40} slidesPerView={"auto"}>
+        <Swiper grapcursor={"true"} spaceBetween={40} slidesPerView={"auto"}>
           {listBanner.length > 0 &&
             listBanner.map((item) => (
               <SwiperSlide className="wiper-slide" key={item.id}>

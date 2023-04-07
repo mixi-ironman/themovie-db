@@ -147,7 +147,7 @@ export function MovieSimilar() {
         <h2 className="mb-10 text-3xl font-medium">Similar movies</h2>
 
         <div className="movie-list">
-          <Swiper grapCursor={"true"} spaceBetween={40} slidesPerView={"auto"}>
+          <Swiper grapcursor={"true"} spaceBetween={40} slidesPerView={"auto"}>
             {results.map((item) => (
               <SwiperSlide className="wiper-slide" key={item.id}>
                 <MovieCart item={item}></MovieCart>
