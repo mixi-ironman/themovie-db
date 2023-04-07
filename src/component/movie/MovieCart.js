@@ -12,7 +12,7 @@ const MovieCart = ({ item }) => {
   };
   return (
     <>
-      <div className="flex flex-col h-full p-5 transition-transform duration-300 ease-in-out rounded-lg select-none bg-stone-950 movie-card bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 bg-slate-30 hover:scale-90">
+      <div className="flex flex-col h-full p-5 transition-transform duration-300 ease-in-out rounded-lg select-none movie-card bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 bg-slate-30 hover:scale-90">
         <img
           src={tmbAPI.image500(item.poster_path)}
           alt=""

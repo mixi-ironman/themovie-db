@@ -1,21 +1,17 @@
 import React, { useEffect, useState } from "react";
-import useSWR from "swr";
 import useSWRInfinite from "swr/infinite";
 import { v4 as uuid } from "uuid";
+import Footer from "../Layout/Footer/Footer";
 import Button from "../component/button/Button";
 import MovieCart from "../component/movie/MovieCart";
 import { fetcher, tmbAPI } from "../config/config";
 import useDebounce from "../hooks/useDebounce";
-import { isDisabled } from "@testing-library/user-event/dist/utils";
-import Footer from "../Layout/Footer/Footer";
 // https://api.themoviedb.org/3/search/movie?api_key=<<api_key>>&language=en-US&page=1&include_adult=false
-// const pageCount = 5;
+
 const itemsPerPage = 10;
 const MoviePage = () => {
   const [nextPage, setNextPage] = useState(1);
   const [filter, setFilter] = useState("");
-  const [pageCount, setPageCount] = useState(null);
-  const [itemOffset, setItemOffset] = useState(0);
 
   //initial call api search
   const [url, setUrl] = useState(tmbAPI.getMovieList("popular", nextPage));
