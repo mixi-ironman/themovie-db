@@ -1,6 +1,14 @@
 import React from "react";
+import Button from "../button/Button";
+import { useNavigate } from "react-router-dom";
 
 const BannerItem = ({ item }) => {
+  const { title, poster_path } = item;
+  const navigate = useNavigate();
+  //handleClick
+  const handleClick = () => {
+    navigate(`/movie/${item.id}`);
+  };
   return (
     <>
       <div className="relative w-full h-full bg-red-200 rounded">
@@ -31,9 +39,12 @@ const BannerItem = ({ item }) => {
             </span>
           </div>
 
-          <button className="px-6 py-3 font-medium rounded-lg bg-primary ">
+          <Button
+            onClick={handleClick}
+            className="px-6 py-3 font-medium rounded-lg bg-fuchsia-600 "
+          >
             Watch Now
-          </button>
+          </Button>
         </div>
       </div>
     </>

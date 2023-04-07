@@ -1,17 +1,15 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import useSWR from "swr";
-import { fetcher } from "../config/config";
+import { fetcher, tmbAPI } from "../config/config";
 import { Swiper, SwiperSlide } from "swiper/react";
 import MovieCart from "../component/movie/MovieCart";
+import Footer from "../Layout/Footer/Footer";
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
 
-  const { data } = useSWR(
-    ` https://api.themoviedb.org/3/movie/${movieId}?api_key=17b91188a0eff4c90437ec7191f712fb`,
-    fetcher
-  );
+  const { data } = useSWR(tmbAPI.getMovieList(movieId), fetcher);
   if (!data) return null;
   const { backdrop_path, poster_path } = data;
   return (
@@ -60,6 +58,7 @@ const MovieDetailsPage = () => {
         <MovieVideos></MovieVideos>
 
         <MovieSimilar></MovieSimilar>
+        <Footer></Footer>
       </div>
     </>
   );
@@ -67,10 +66,7 @@ const MovieDetailsPage = () => {
 
 export function MovieCredits() {
   const { movieId } = useParams();
-  const { data } = useSWR(
-    `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=17b91188a0eff4c90437ec7191f712fb`,
-    fetcher
-  );
+  const { data } = useSWR(tmbAPI.getMovieInfo(movieId, "credits"), fetcher);
 
   if (!data) return null;
   const { cast } = data;
@@ -100,10 +96,7 @@ export function MovieCredits() {
 
 export function MovieVideos() {
   const { movieId } = useParams();
-  const { data } = useSWR(
-    `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=17b91188a0eff4c90437ec7191f712fb`,
-    fetcher
-  );
+  const { data } = useSWR(tmbAPI.getMovieInfo(movieId, "videos"), fetcher);
 
   if (!data) return null;
   //   console.log(data);
@@ -141,10 +134,7 @@ export function MovieVideos() {
 
 export function MovieSimilar() {
   const { movieId } = useParams();
-  const { data } = useSWR(
-    `https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=17b91188a0eff4c90437ec7191f712fb`,
-    fetcher
-  );
+  const { data } = useSWR(tmbAPI.getMovieInfo(movieId, "similar"), fetcher);
 
   if (!data) return null;
   //    console.log(data);

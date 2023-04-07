@@ -2,17 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/scss";
 import useSWR from "swr";
-import { apiKey, fetcher } from "../../config/config";
+import { apiKey, fetcher, tmbAPI } from "../../config/config";
 import MovieCart from "./MovieCart";
-
+// import {tmbAPI} from '../'
 //https://api.themoviedb.org/3/movie/now_playing?api_key=<<api_key>>&language=en-US&page=1
 const MovieList = ({ type = "now_playing" }) => {
   const [movies, setMovies] = useState([]);
 
-  const { data, error } = useSWR(
-    ` https://api.themoviedb.org/3/movie/${type}?api_key=${apiKey}`,
-    fetcher
-  );
+  const { data, error } = useSWR(tmbAPI.getMovieList(type), fetcher);
 
   useEffect(() => {
     if (data && data.results) {
