@@ -3,7 +3,7 @@ import "swiper/scss";
 
 import { Route, Routes } from "react-router-dom";
 import Main from "./Layout/Main";
-import Banner from "./component/banner/Banner";
+import Banner from "./component/Banner/Banner";
 // import HomePage from "./pages/HomePage";
 // import MoviePage from "./pages/MoviePage";
 // import MovieDetailsPage from "./pages/MovieDetailsPage";
